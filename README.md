@@ -7,6 +7,13 @@ My goal with this extension was to discover Google Chrome's extension developmen
 
 elementZapper is available on the Chrome Web Store: https://chrome.google.com/webstore/detail/elementzapper/efeljanahmlnjhckmohcfbgkfdjdmnog?hl=en
 
+# Changelog
+
+## Version 1.1
+* Improved the element removal code. Even if a selection was present, the last right clicked element is also removed
+
+## Version 1.0
+* Initial commit
 
 # Authors
 Sebastien Dubois

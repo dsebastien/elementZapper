@@ -26,15 +26,19 @@ chrome.runtime.onMessage.addListener(
 				selection.removeAllRanges(); // clear the selection
 			}catch(err){
 				// ignorance is bliss
-				console.log(err.message);
 			}
-		}else{
-			// if the selection is empty, it can be: an image, a link, a video, etc
-			if(lastRightClickedElement != null){
-				var parentOfLastRightClickedElement = lastRightClickedElement.parentNode;
-				parentOfLastRightClickedElement.removeChild(lastRightClickedElement);
-				lastRightClickedElement = null;
+		}
+		
+		// in addition, to handle images, links, videos, etc:
+		if(lastRightClickedElement != null){
+			// todo improve: continue moving up until we find a container (e.g., div) so that we don't just zap small elements
+			// risk: zap too violently ;-)
+			try{
+				lastRightClickedElement.parentNode.removeChild(lastRightClickedElement);
+			}catch(err){
+				// ignorance is bliss
 			}
+			lastRightClickedElement = null;
 		}
 	}
 });
